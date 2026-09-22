@@ -16,12 +16,14 @@ export default async function handler(req, res) {
 
     return res.status(200).json({
       success: true,
+      stage: "tuya",
       message: "Acessor conectado à Tuya.",
       tuyaSuccess: data.success === true
     });
   } catch (error) {
-    return res.status(502).json({
+    return res.status(200).json({
       success: false,
+      stage: "tuya",
       error: error.message
     });
   }
