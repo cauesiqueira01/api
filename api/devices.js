@@ -52,9 +52,11 @@ export default async function handler(req, res) {
       devices: normalized
     });
   } catch (error) {
-    return res.status(502).json({
+    return res.status(200).json({
       success: false,
-      error: error.message
+      stage: "tuya",
+      error: error.message,
+      devices: []
     });
   }
 }
